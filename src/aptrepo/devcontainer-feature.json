@@ -1,7 +1,7 @@
 {
   "name": "aptrepo",
   "id": "aptrepo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "update apt repository source",
   "options": {
     "source": {
