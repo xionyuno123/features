@@ -3,29 +3,24 @@
 
 echo "Activating feature aptrepo"
 
-if [ ! -d "/etc/apt/sources.list.d" ]; then
-  mkdir /etc/apt/sources.list.d
-fi
-
 SOURCE=${SOURCE:-undefined}
 
 if [ ${SOURCE} = "tsinghua" ]; then
   echo "tsinghua repositry was seleclted"
-  cp ./repo/tsinghua /etc/apt/sources.list.d/tsinghua
-  echo "Activating feature aptrepo success"
-  exit 0
+  sed -i "s/archive.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list
 elif [ ${SOURCE} = "ustc" ]; then
   echo "ustc repositry was seleclted"
-  cp ./repo/ustc /etc/apt/sources.list.d/ustc
-  echo "Activating feature aptrepo success"
-  exit 0
+  sed -i "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list
 elif [ ${SOURCE} = "aliyun" ]; then
   echo "aliyun repositry was seleclted"
-  cp ./repo/aliyun /etc/apt/sources.list.d/aliyun
-  echo "Activating feature aptrepo success"
-  exit 0
+  sed -i "s/archive.ubuntu.com/mirrors.aliyun.com/g" /etc/apt/sources.list
 else  
   echo "Unkown repository: ${SOURCE}"
   echo "Activating feature aptrepo failed"
   exit 1
 fi
+
+apt-get clean 
+apt-get update
+
+echo "Activating feature aptrepo success"
