@@ -1,12 +1,35 @@
 {
   "name": "folly",
   "id": "folly",
-  "version": "1.0.1",
+  "version": "1.0.2",
+  "options": {
+    "version": {
+      "type": "string",
+      "proposals": [
+        "latest"
+      ],
+      "default": "latest"
+    }
+  },
+  "dependsOn": {
+    "ghcr.io/xionyuno123/features/cmake:latest": {},
+    "ghcr.io/xionyuno123/features/boost:latest": {}
+    // "ghcr.io/xionyuno123/features/double-conversion-dev:latest": {},
+    // "ghcr.io/xionyuno123/features/event:latest": {},
+    // "ghcr.io/xionyuno123/features/gflags:latest": {},
+    // "ghcr.io/xionyuno123/features/glog:latest": {},
+    // "ghcr.io/xionyuno123/features/lz4:latest": {},
+    // "ghcr.io/xionyuno123/features/lzma:latest": {},
+    // "ghcr.io/xionyuno123/features/snappy:latest": {},
+    // "ghcr.io/xionyuno123/features/sodium:latest": {},
+    // "ghcr.io/xionyuno123/features/tool:latest": {},
+    // "ghcr.io/xionyuno123/features/zstd:latest": {},
+    // "ghcr.io/xionyuno123/features/ninja-build:latest": {},
+    // "ghcr.io/xionyuno123/features/autoconf:latest": {},
+    // "ghcr.io/xionyuno123/features/automake:latest": {},
+    // "ghcr.io/xionyuno123/features/fmt:latest": {}
+  },
   "installsAfter": [
-    "ghcr.io/xionyuno123/features/aptrepo:latest",
-    "ghcr.io/xionyuno123/features/dev-common:latest",
-    "ghcr.io/xionyuno123/features/boost:latest",
-    "ghcr.io/xionyuno123/features/gtest:latest",
-    "ghcr.io/xionyuno123/features/python:latest"
+    "ghcr.io/xionyuno123/features/aptrepo:latest"
   ]
 }
