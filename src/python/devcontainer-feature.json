@@ -1,0 +1,13 @@
+{
+  "name": "python",
+  "id": "python",
+  "version": "1.0.0",
+  "options": {
+    "version": {
+      "type": "string"
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/xionyuno123/features/aptrepo:latest"
+  ]
+}

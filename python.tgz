@@ -1,0 +1,7 @@
+--2024-03-29 16:48:30--  https://registry.npmmirror.com/-/binary/python/3.1.1/Python-3.1.1.tgz
+Resolving registry.npmmirror.com (registry.npmmirror.com)... 61.160.192.98, 240e:e9:d804:0:3::3fb
+Connecting to registry.npmmirror.com (registry.npmmirror.com)|61.160.192.98|:443... connected.
+HTTP request sent, awaiting response... 302 Moved Temporarily
+Location: https://cdn.npmmirror.com/binaries/python/3.1.1/Python-3.1.1.tgz [following]
+--2024-03-29 16:48:31--  https://cdn.npmmirror.com/binaries/python/3.1.1/Python-3.1.1.tgz
+Resolving cdn.npmmirror.com (cdn.npmmirror.com)... 

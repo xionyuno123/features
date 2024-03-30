@@ -1,0 +1,14 @@
+{
+  "name": "gflag",
+  "id": "gflag",
+  "version": "1.0.0",
+  "options": {
+    "version": {
+      "type": "string"
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/xionyuno123/features/aptrepo:latest",
+    "ghcr.io/xionyuno123/features/dev-common:latest"
+  ]
+}

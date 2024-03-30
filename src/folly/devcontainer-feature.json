@@ -1,0 +1,12 @@
+{
+  "name": "folly",
+  "id": "folly",
+  "version": "1.0.0",
+  "installsAfter": [
+    "ghcr.io/xionyuno123/features/aptrepo:latest",
+    "ghcr.io/xionyuno123/features/dev-common:latest",
+    "ghcr.io/xionyuno123/features/boost:latest",
+    "ghcr.io/xionyuno123/features/gtest:latest",
+    "ghcr.io/xionyuno123/features/python:latest"
+  ]
+}

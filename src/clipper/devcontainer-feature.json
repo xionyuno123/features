@@ -1,0 +1,32 @@
+{
+  "name": "clipper",
+  "id": "clipper",
+  "version": "0.4.1",
+  "description": "clipper docker images",
+  "options": {
+    "image": {
+      "type": "string",
+      "proposals": [
+        "dev"
+      ],
+      "default": "dev"
+    },
+    "username": {
+      "type": "string"
+    },
+    "usertoken": {
+      "type": "string"
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/xionyuno123/features/aptrepo:latest",
+    "ghcr.io/xionyuno123/features/dev-common:latest",
+    "ghcr.io/xionyuno123/features/python:latest",
+    "ghcr.io/xionyuno123/features/boost:latest",
+    "ghcr.io/xionyuno123/features/glog:latest",
+    "ghcr.io/xionyuno123/features/gflag:latest",
+    "ghcr.io/xionyuno123/features/gtest:latest",
+    "ghcr.io/xionyuno123/features/folly:latest",
+    "ghcr.io/xionyuno123/features/cityhash:latest"
+  ]
+}
