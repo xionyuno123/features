@@ -2,9 +2,6 @@
   "id": "cmake",
   "name": "cmake",
   "version": "1.0.0",
-  "description": "",
-  "documentationURL": "",
-  "licenseURL": "",
   "options": {
     "version": {
       "type": "string",
@@ -15,23 +12,7 @@
       "default": "os-provided"
     }
   },
-  "containerEnv": {},
-  "privileged": false,
-  "init": false,
-  "capAdd": [],
-  "securityOpt": [],
-  "entrypoint": "",
-  "customizations": {},
   "dependsOn": {
     "ghcr.io/jungaretti/features/make:1": {}
-  },
-  "installsAfter": [],
-  "legacyIds": [],
-  "deprecated": false,
-  "mounts": {},
-  "onCreateCommand": "",
-  "updateContentCommand": "",
-  "postCreateCommand": "",
-  "postStartCommand": "",
-  "postAttachCommand": ""
+  }
 }
