@@ -37,11 +37,10 @@ if [ -z ${WGET_INSTALLED} ]; then
   apt-get install -y wget
 fi
 
-wget -o python.tgz https://registry.npmmirror.com/-/binary/python/${VERSION}/Python-${VERSION}.tgz
-tar -xvf python.tgz
+wget https://registry.npmmirror.com/-/binary/python/${VERSION}/Python-${VERSION}.tgz
+tar -xvf Python-${VERSION}.tgz
 
-mv Python-${VERSION} python
-cd python
+cd Python-${VERSION}
 
 if [ $PYTHON3 <= 1 ]; then 
 ./configure --prefix=/usr/local/python3
@@ -61,5 +60,6 @@ ln -s /usr/local/python/bin/pip /usr/bin/pip
 fi
 
 cd ../
-rm python -rf
-rm python.tgz 
+
+rm Python-${VERSION} -rf
+rm Python-${VERSION}.tgz 
