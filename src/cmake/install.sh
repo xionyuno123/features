@@ -170,9 +170,9 @@ if [ ${CMAKE_VERSION} = "os-provided" ] || [ ${CMAKE_VERSION} = "system" ]; then
   fi
 
   if [ "$INSTALL_CMD" = "apt-get" ]; then
-      echo "Installing boost from OS apt repository"
+      echo "Installing cmake from OS apt repository"
   else
-      echo "Installing boost from OS yum/dnf repository"
+      echo "Installing cmake from OS yum/dnf repository"
   fi
 
   if [ $ID = "mariner" ]; then
