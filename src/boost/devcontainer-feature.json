@@ -1,15 +1,21 @@
 {
-  "name": "boost",
   "id": "boost",
-  "version": "1.0.1",
+  "name": "boost",
+  "version": "1.0.0",
   "options": {
     "version": {
       "type": "string",
-      "default": "1.84.0"
+      "proposals": [
+        "latest",
+        "os-provided"
+      ],
+      "default": "os-provided"
     }
   },
+  "dependsOn": {
+    "ghcr.io/xionyuno123/features/cmake:latest": {}
+  },
   "installsAfter": [
-    "ghcr.io/xionyuno123/features/aptrepo:latest",
-    "ghcr.io/xionyuno123/features/dev-common:latest"
+    "ghcr.io/xionyuno123/features/aptrepo:latest"
   ]
 }

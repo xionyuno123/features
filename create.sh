@@ -54,8 +54,6 @@ BASE_SHELL_SCRIPT=src/${FEATURE_NAME}/base.sh
 exec_cmd_fatal touch $DEVCONTAINER_FEATURE_FILE
 exec_cmd_fatal touch $INSTALL_SHELL_SCRIPT
 exec_cmd_fatal chmod +x $INSTALL_SHELL_SCRIPT
-exec_cmd_fatal touch $BASE_SHELL_SCRIPT
-exec_cmd_fatal chmod +x $BASE_SHELL_SCRIPT
 
 tee $DEVCONTAINER_FEATURE_FILE >>/dev/null << EOF
 {

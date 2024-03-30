@@ -1,5 +1,13 @@
 #!/bin/sh
 
+###############################################################################
+#                         options
+###############################################################################
+CMAKE_VERSION=${VERSION:-undefined}
+CMAKE_REPO="https://gitee.com/mirrors/CMake.git"
+
+
+
 if [ "$(id -u)" -ne 0 ]; then
     echo -e 'Script must be run as root. Use sudo, su, or add "USER root" to your Dockerfile before running this script.'
     exit 1
@@ -151,12 +159,6 @@ check_packages() {
 }
 
 ###############################################################################
-#                         options
-###############################################################################
-CMAKE_VERSION=${VERSION:-undefined}
-CMAKE_REPO="https://gitee.com/mirrors/CMake.git"
-
-###############################################################################
 #                     custom script code
 ###############################################################################
 
@@ -168,9 +170,9 @@ if [ ${CMAKE_VERSION} = "os-provided" ] || [ ${CMAKE_VERSION} = "system" ]; then
   fi
 
   if [ "$INSTALL_CMD" = "apt-get" ]; then
-      echo "Installing git from OS apt repository"
+      echo "Installing boost from OS apt repository"
   else
-      echo "Installing git from OS yum/dnf repository"
+      echo "Installing boost from OS yum/dnf repository"
   fi
 
   if [ $ID = "mariner" ]; then
