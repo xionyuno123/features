@@ -1,19 +1,11 @@
 {
   "name": "cityhash",
   "id": "cityhash",
-  "version": "1.0.1",
-  "options": {
-    "username": {
-      "type": "string",
-      "default": ""
-    },
-    "usertoken": {
-      "type": "string",
-      "default": ""
-    }
+  "version": "1.0.3",
+  "dependsOn": {
+    "ghcr.io/jungaretti/features/make:1": {}
   },
   "installsAfter": [
-    "ghcr.io/xionyuno123/features/aptrepo:latest",
-    "ghcr.io/xionyuno123/features/dev-common:latest"
+    "ghcr.io/xionyuno123/features/aptrepo:latest"
   ]
 }
