@@ -1,7 +1,7 @@
 {
   "name": "clipper",
   "id": "clipper",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "clipper docker images",
   "options": {
     "image": {

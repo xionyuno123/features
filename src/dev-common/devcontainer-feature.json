@@ -1,7 +1,7 @@
 {
   "name": "dev-common",
   "id": "dev-common",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "installsAfter": [
     "ghcr.io/xionyuno123/features/aptrepo:latest"
   ]

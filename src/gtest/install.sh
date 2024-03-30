@@ -22,14 +22,5 @@ if [ -z ${GIT_INSTALLED} ]; then
   apt-get install -y git
 fi
 
-git clone -b v${VERSION} https://gitee.com/mirrors/googletest.git
-
-cd googletest
-cmake -S . -B build -G "Unix Makefiles"
-cd build 
-make -j `nproc`
-make install
-cd ..
-cd ..
-
-rm googletest -rf
+git clone -b v${VERSION} https://gitee.com/mirrors/googletest.git && cd googletest && cmake -S . -B build -G "Unix Makefiles" && cd build  \
+&& make -j `nproc` && make install && cd .. && cd .. && rm googletest -rf

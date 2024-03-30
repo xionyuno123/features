@@ -37,29 +37,36 @@ if [ -z ${WGET_INSTALLED} ]; then
   apt-get install -y wget
 fi
 
-wget https://registry.npmmirror.com/-/binary/python/${VERSION}/Python-${VERSION}.tgz
-tar -xvf Python-${VERSION}.tgz
+wget https://registry.npmmirror.com/-/binary/python/${VERSION}/Python-${VERSION}.tgz && tar -xvf Python-${VERSION}.tgz && cd Python-${VERSION}
 
-cd Python-${VERSION}
-
-if [ $PYTHON3 <= 1 ]; then 
-./configure --prefix=/usr/local/python3
-else 
-./configure --prefix=/usr/local/python
+if [ $? != 0 ]; then 
+    exit 1
 fi
 
-make -j `nproc`
-make install
-
 if [ $PYTHON3 <= 1 ]; then 
-ln -s /usr/local/python3/bin/python3 /usr/bin/python3
-ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3
+    ./configure --prefix=/usr/local/python3
 else 
-ln -s /usr/local/python/bin/python /usr/bin/python
-ln -s /usr/local/python/bin/pip /usr/bin/pip
+    ./configure --prefix=/usr/local/python
 fi
 
-cd ../
+if [ $? != 0]; then
+    exit 1
+fi
 
-rm Python-${VERSION} -rf
-rm Python-${VERSION}.tgz 
+make -j `nproc` && make install
+
+if [ $? != 0]; then
+    exit 1
+fi
+
+if [ $PYTHON3 <= 1 ]; then 
+    ln -s /usr/local/python3/bin/python3 /usr/bin/python3 & ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3
+else 
+    ln -s /usr/local/python/bin/python /usr/bin/python & ln -s /usr/local/python/bin/pip /usr/bin/pip
+fi
+
+if [ $? != 0]; then
+    exit 1
+fi
+
+cd ../ && rm Python-${VERSION} -rf && rm Python-${VERSION}.tgz 
