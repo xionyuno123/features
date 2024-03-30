@@ -1,22 +1,11 @@
 {
-  // Required, must be unique in the context of the repository where the feature 
-  // exists and must match the name of the directory where the devcontainer-feature.json 
-  // resides
   "id": "cmake",
-  // Required: A “human-friendly” display name for the Feature.
   "name": "cmake",
-  // Required: The semantic version of the Feature (e.g: 1.0.0).
   "version": "1.0.0",
-  // Description of the Feature.
   "description": "",
-  // Url that points to the documentation of the Feature.
   "documentationURL": "",
-  // Url that points to the license of the Feature.
   "licenseURL": "",
-  // List of strings relevant to a user that would search for this definition/Feature.
   "keywords": [],
-  // A map of options that will be passed as environment variables to the execution of the 
-  // script.
   "options": {
     "version": {
       "type": "string",
@@ -27,49 +16,23 @@
       "default": "os-provided"
     }
   },
-  // A set of name value pairs that sets or overrides environment variables.
   "containerEnv": {},
-  // Sets privileged mode for the container (required by things like docker-in-docker) when 
-  // the feature is used
   "privileged": false,
-  // Adds the tiny init process to the container (--init) when the Feature is used.
   "init": false,
-  // Adds container capabilities when the Feature is used.
   "capAdd": [],
-  // Sets container security options like updating the seccomp profile when the Feature is used.
   "securityOpt": [],
-  // Set if the feature requires an “entrypoint” script that should fire at container start up.
   "entrypoint": "",
-  // Product specific properties, each namespace under customizations is treated as a separate 
-  // set of properties. For each of this sets the object is parsed, values are replaced while 
-  // arrays are set as a union.
   "customizations": {},
-  // An object (**) of Feature dependencies that must be satisified before this Feature is installed.
   "dependsOn": {
     "ghcr.io/jungaretti/features/make:1": {}
   },
-  // Array of ID’s of Features (omitting a version tag) that should execute before this one.
   "installsAfter": [],
-  // Array of old IDs used to publish this Feature. The property is useful for renaming a currently
-  // published Feature within a single namespace.
   "legacyIds": [],
-  // Indicates that the Feature is deprecated, and will not receive any further updates/support.
   "deprecated": false,
-  // Defaults to unset. Cross-orchestrator way to add additional mounts to a container. 
   "mounts": {},
-  // Commands to execute after the container is created. For each lifecycle hook,
-  // each command contributed by a Feature is executed in sequence 
-  // (blocking the next command from executing). Commands provided by Features are always executed 
-  // before any user-provided lifecycle commands. If a Feature provides a given command with 
-  // the object syntax, all commands within that group are executed in parallel, but still blocking 
-  // commands from subsequent Features and/or the devcontainer.json.
   "onCreateCommand": "",
-  // Commands to execute when the container starts
   "updateContentCommand": "",
-  // Commands to execute before and after the container is created
   "postCreateCommand": "",
-  // Commands to execute before and after the container starts
   "postStartCommand": "",
-  // Command to execute after attaching the container to the VS Code instance.
   "postAttachCommand": ""
 }
