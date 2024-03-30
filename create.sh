@@ -124,7 +124,7 @@ tee $DEVCONTAINER_FEATURE_FILE >>/dev/null << EOF
 }
 EOF
 
-tee $BASE_SHELL_SCRIPT >>/dev/null <<- 'EOF' -
+tee $INSTALL_SHELL_SCRIPT >>/dev/null <<- 'EOF' -
 #!/bin/sh
 
 ###############################################################################
@@ -280,17 +280,6 @@ check_packages() {
         exit 1
     fi
 }
-
-EOF
-
-tee $INSTALL_SHELL_SCRIPT >>/dev/null <<- 'EOF' -
-#!/bin/sh
-
-./bash.sh
-
-if [ $? != 0 ]; then
-  exit $?
-fi
 
 ###############################################################################
 #                         options
