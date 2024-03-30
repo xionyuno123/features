@@ -4,10 +4,12 @@
   "version": "1.0.0",
   "options": {
     "username": {
-      "type": "string"
+      "type": "string",
+      "default": ""
     },
     "usertoken": {
-      "type": "string"
+      "type": "string",
+      "default": ""
     }
   },
   "installsAfter": [

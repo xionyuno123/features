@@ -12,10 +12,12 @@
       "default": "dev"
     },
     "username": {
-      "type": "string"
+      "type": "string",
+      "default": ""
     },
     "usertoken": {
-      "type": "string"
+      "type": "string",
+      "default": ""
     }
   },
   "installsAfter": [

@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "options": {
     "version": {
-      "type": "string"
+      "type": "string",
+      "default": "2.2.2"
     }
   },
   "installsAfter": [
