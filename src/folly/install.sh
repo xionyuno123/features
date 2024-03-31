@@ -5,6 +5,7 @@
 ###############################################################################
 
 FOLLY_VERSION=${VERSION:-undefined}
+GITEE_TOKEN="7dcd0f978a55cf88a14ffd398d4d3be3"
 
 
 ###############################################################################
@@ -73,9 +74,10 @@ exec_cmd_warning() {
   cmd=$1
   shift
   $cmd $@
-  if [ $? != 0 ]
+  res=$?
+  if [ $res != 0 ]
   then
-    echo  "${yellow}Warning: failed to execute command '$cmd' with params '$@',code: $? ${reset}" >&2
+    echo  "${yellow}Warning: failed to execute command '$cmd' with params '$@',code: $res ${reset}" >&2
   else
     echo  "Info: execute command '$cmd' with params '$@' success"
   fi
@@ -87,10 +89,11 @@ exec_cmd_fatal() {
   cmd=$1
   shift
   $cmd $@
-  if [ $? != 0 ]
+  res=$?
+  if [ $res != 0 ]
   then
-    echo  "${red}Fatal: failed to execute command '$cmd' with params '$@',code: $? ${reset}" >&2
-    exit $?
+    echo  "${red}Fatal: failed to execute command '$cmd' with params '$@',code: $res ${reset}" >&2
+    exit 1
   else
     echo  "Info: execute command '$cmd' with params '$@' success"
   fi
@@ -161,11 +164,10 @@ check_packages() {
 ###############################################################################
 #                     custom script code
 ###############################################################################
-
 # Partial version matching
 if [ "$(echo "${FOLLY_VERSION}" | grep -o '\.' | wc -l)" != "2" ]; then
     requested_version="${FOLLY_VERSION}"
-    version_list="$(curl -X GET --header 'Content-Type: application/json;charset=UTF-8' 'https://gitee.com/api/v5/repos/mirrors/folly/tags?access_token=4742447bfca33de9fd1d143863c21e65&sort=name&direction=desc&page=1' | grep -oP '"name":\s*"v\K[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"' | tr -d '"' | sort -rV )"
+    version_list="$(curl -X GET --header 'Content-Type: application/json;charset=UTF-8' "https://gitee.com/api/v5/repos/mirrors/boost/tags?access_token=${GITEE_TOKEN}&sort=name&direction=desc&page=1" | grep -oP '"name":\s*"v\K[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"' | tr -d '"' | sort -rV )"
     if [ "${requested_version}" = "latest" ] || [ "${requested_version}" = "lts" ] || [ "${requested_version}" = "current" ]; then
         FOLLY_VERSION="$(echo "${version_list}" | head -n 1)"
     else
@@ -174,6 +176,7 @@ if [ "$(echo "${FOLLY_VERSION}" | grep -o '\.' | wc -l)" != "2" ]; then
         set -e
     fi
 fi
+
 
 echo "Downloading source for ${FOLLY_VERSION}..."
 check_packages git

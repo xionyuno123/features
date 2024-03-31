@@ -187,7 +187,7 @@ fi
 # Partial version matching
 if [ "$(echo "${CMAKE_VERSION}" | grep -o '\.' | wc -l)" != "2" ]; then
     requested_version="${CMAKE_VERSION}"
-    version_list="$(curl -X GET --header 'Content-Type: application/json;charset=UTF-8' 'https://gitee.com/api/v5/repos/mirrors/CMake/tags?access_token=4742447bfca33de9fd1d143863c21e65&sort=name&direction=desc&page=1'| grep -oP '"name":\s*"v\K[0-9]+\.[0-9]+\.[0-9]+"' | tr -d '"' | sort -rV )"
+    version_list="$(curl -X GET --header 'Content-Type: application/json;charset=UTF-8' 'https://gitee.com/api/v5/repos/mirrors/CMake/tags?access_token=7dcd0f978a55cf88a14ffd398d4d3be3&sort=name&direction=desc&page=1'| grep -oP '"name":\s*"v\K[0-9]+\.[0-9]+\.[0-9]+"' | tr -d '"' | sort -rV )"
     if [ "${requested_version}" = "latest" ] || [ "${requested_version}" = "lts" ] || [ "${requested_version}" = "current" ]; then
         CMAKE_VERSION="$(echo "${version_list}" | head -n 1)"
     else
