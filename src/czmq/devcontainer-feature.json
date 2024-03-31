@@ -1,0 +1,18 @@
+{
+  "name": "czmq",
+  "id": "czmq",
+  "version": "1.0.3",
+  "options": {
+    "version": {
+      "type": "string",
+      "proposals": [
+        "latest",
+        "os-provided"
+      ],
+      "default": "os-provided"
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/xionyuno123/features/aptrepo:latest"
+  ]
+}
