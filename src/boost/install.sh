@@ -74,9 +74,10 @@ exec_cmd_warning() {
   cmd=$1
   shift
   $cmd $@
-  if [ $? != 0 ]
+  res=$?
+  if [ $res != 0 ]
   then
-    echo  "${yellow}Warning: failed to execute command '$cmd' with params '$@',code: $? ${reset}" >&2
+    echo  "${yellow}Warning: failed to execute command '$cmd' with params '$@',code: $res ${reset}" >&2
   else
     echo  "Info: execute command '$cmd' with params '$@' success"
   fi
@@ -88,10 +89,11 @@ exec_cmd_fatal() {
   cmd=$1
   shift
   $cmd $@
-  if [ $? != 0 ]
+  res=$?
+  if [ $res != 0 ]
   then
-    echo  "${red}Fatal: failed to execute command '$cmd' with params '$@',code: $? ${reset}" >&2
-    exit $?
+    echo  "${red}Fatal: failed to execute command '$cmd' with params '$@',code: $res ${reset}" >&2
+    exit 1
   else
     echo  "Info: execute command '$cmd' with params '$@' success"
   fi

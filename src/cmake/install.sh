@@ -89,7 +89,7 @@ exec_cmd_fatal() {
   if [ $? != 0 ]
   then
     echo  "${red}Fatal: failed to execute command '$cmd' with params '$@',code: $? ${reset}" >&2
-    exit $?
+    exit 1
   else
     echo  "Info: execute command '$cmd' with params '$@' success"
   fi
